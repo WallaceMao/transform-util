@@ -1,0 +1,19 @@
+{
+  "name": "transform-util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "startDingtalk": "node index.js dingtalk",
+    "startQywx": "node index.js qywx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wallace Mao",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^2.0.1",
+    "cron": "^1.4.1",
+    "mysql2": "^1.6.1",
+    "winston": "^3.1.0"
+  }
+}

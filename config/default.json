@@ -1,0 +1,27 @@
+{
+    "log": {
+        "outputPath": "",
+        "level": "debug"
+    },
+    "dataSource": {
+        "rishiqingNew": {
+            "host": "localhost",
+            "username": "root",
+            "password": "root",
+            "database": "rishiqing"
+        },
+        "dingtalkAuth": {
+            "host": "localhost",
+            "username": "root",
+            "password": "root",
+            "database": "ding_isv_access_rds_beta"
+        },
+        "qywxAuth": {
+            "host": "localhost",
+            "username": "root",
+            "password": "root",
+            "database": "qywx_isv_access_beta"
+        }
+
+    }
+}
