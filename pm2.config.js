@@ -6,11 +6,13 @@ module.exports = {
           name: "transform-job",
           script: "./index.js",
           watch: true,
-          env: {
-              "NODE_ENV": "production"
+          env_qywx: {
+            "PARTY_NAME": "qywx",
+            "NODE_ENV": "production"
           },
-          env_beta: {
-              "NODE_ENV": "beta",
+          env_dingtalk: {
+              "PARTY_NAME": "dingtalk",
+              "NODE_ENV": "production",
           }
         }
     ]

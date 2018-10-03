@@ -5,7 +5,7 @@ const main = () => {
     let targetDb
     try {
         global.logger = require('./config/logConfig').commonLogger
-        const partyName = process.argv[2]
+        const partyName = process.argv[2] || process.env.PARTY_NAME
     
         if(!partyName){
             global.logger.error(`party not found! dingtalk or qywx ?`)
