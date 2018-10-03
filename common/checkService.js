@@ -19,10 +19,14 @@ const check = async () => {
 
     global.logger.info(`begin to check: config: ${JSON.stringify(config)}, startId: ${startId}, endId: ${endId}`)
     for(let indexId = startId; startId <= endId; indexId++){
+        // 查询已经迁移到新版的用户队列
         const oauth = await dao.querySourceQueue(indexId)
         if(!oauth){
             continue
         }
+        // 更新钉钉或者企业微信的配置信息
+        await dao.updateTargetConfig(oauth.queueId)
+        // 更新用户信息
         const outerArray = oauth.outerId.split('--')
         const corpId = outerArray[0]
         const userId = outerArray[1]
@@ -36,7 +40,6 @@ const check = async () => {
             rsqUserId: oauth.rsqUserId,
             rsqLoginToken: oauth.rsqLoginToken
         })
-        await dao.updateTargetConfig(oauth.queueId)
     }
     global.logger.info(`check end`)
 }
