@@ -7,7 +7,7 @@ module.exports = {
           script: "./index.js",
           instances: 1,
           instance_var: 'INSTANCE_ID',
-          watch: true,
+          watch: false,
           env_qywx: {
             "PARTY_NAME": "qywx",
             "NODE_ENV": "production"
