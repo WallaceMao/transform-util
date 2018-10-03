@@ -12,7 +12,7 @@ module.exports = {
           },
           env_dingtalk: {
               "PARTY_NAME": "dingtalk",
-              "NODE_ENV": "production",
+              "NODE_ENV": "production"
           }
         }
     ]
