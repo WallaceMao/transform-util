@@ -18,7 +18,7 @@ const check = async () => {
     const endId = Math.min(config.checkEndId, maxObj.maxId)
 
     global.logger.info(`begin to check: config: ${JSON.stringify(config)}, startId: ${startId}, endId: ${endId}`)
-    for(let indexId = startId; startId <= endId; indeId++){
+    for(let indexId = startId; startId <= endId; indexId++){
         const oauth = await dao.querySourceQueue(indexId)
         if(!oauth){
             continue
