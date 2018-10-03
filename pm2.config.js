@@ -5,6 +5,8 @@ module.exports = {
         {
           name: "transform-job",
           script: "./index.js",
+          instances: 1,
+          instance_var: 'INSTANCE_ID',
           watch: true,
           env_qywx: {
             "PARTY_NAME": "qywx",
