@@ -18,7 +18,7 @@ const check = async () => {
     const endId = Math.min(config.checkEndId, maxObj.maxId)
 
     global.logger.info(`begin to check: config: ${JSON.stringify(config)}, startId: ${startId}, endId: ${endId}`)
-    for(let indexId = startId; startId <= endId; indexId++){
+    for(let indexId = startId; indexId <= endId; indexId++){
         // 更新钉钉或者企业微信的配置信息
         await dao.updateTargetConfig(indexId)
         // 查询已经迁移到新版的用户队列
