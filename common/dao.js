@@ -67,7 +67,7 @@ const updateTargetStaff = async (oauth) => {
     if(!targetTag || !targetConn){
         throw new Error(`targetTag or targetConn not found: ${targetTag}, ${targetConn}`)
     }
-    const SQL = 'update isv_corp_staff t set t.rsq_user_id=${oauth.rsqUserId}, t.rsq_login_token=${oauth.rsqLoginToken}` where t.corp_id=${oauth.corpId} and t.user_id=${oauth.userId}'
+    const SQL = 'update isv_corp_staff t set t.rsq_user_id=?, t.rsq_login_token=? where t.corp_id=? and t.user_id=?'
     const [rows, fields] = await targetConn.execute(SQL, [oauth.rsqUserId, oauth.rsqLoginToken, oauth.corpId, oauth.userId])
     if(!rows || rows.length < 1){
         throw new Error(`updateTargetStaff update no rows, result: ${rows}, sql: ${SQL}, params: ${JSON.stringify(oauth)}}`)
