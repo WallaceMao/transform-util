@@ -22,7 +22,8 @@ const querySourceMaxId = async () => {
     const SQL = 'select max(t.id) as maxId from transform_oauth t where t.type = ?'
     const [rows, fields] = await sourceConn.execute(SQL, [targetTag])
     if(!rows || rows.length < 1){
-        throw new Error(`querySourceMaxId result not found, result: ${rows}, sql: ${SQL}`)
+        // throw new Error(`querySourceMaxId result not found, result: ${rows}, sql: ${SQL}`)
+        return null
     }
     return rows[0]
 }
@@ -38,7 +39,8 @@ const querySourceQueue = async (id) => {
     const SQL = 'select t.id as queueId, u.id as rsqUserId, t.outer_id as outerId, u.username as rsqLoginToken from transform_oauth t left join user u on t.user_id=u.id where t.type = ? and t.id = ?'
     const [rows, fields] = await sourceConn.execute(SQL, [targetTag, id])
     if(!rows || rows.length < 1){
-        throw new Error(`querySourceQueue result not found, result: ${rows}, sql: ${SQL}, params: ${id}`)
+        // throw new Error(`querySourceQueue result not found, result: ${rows}, sql: ${SQL}, params: ${id}`)
+        return null
     }
     return rows[0]
 }
@@ -54,7 +56,8 @@ const queryTargetConfig = async () => {
     const SQL = 'select t.is_on as isOn, t.check_start_id as checkStartId, t.check_end_id as checkEndId from transform_config t limit 1'
     const [rows, fields] = await targetConn.execute(SQL)
     if(!rows || rows.length < 1){
-        throw new Error(`queryTargetConfig result not found, result: ${rows}, sql: ${SQL}`)
+        // throw new Error(`queryTargetConfig result not found, result: ${rows}, sql: ${SQL}`)
+        return null
     }
     return rows[0]
 }
