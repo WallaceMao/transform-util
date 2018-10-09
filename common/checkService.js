@@ -18,6 +18,7 @@ const check = async () => {
     const endId = Math.min(config.checkEndId, maxObj.maxId)
 
     global.logger.info(`begin to check: config: ${JSON.stringify(config)}, startId: ${startId}, endId: ${endId}`)
+    let updated = 0
     for(let indexId = startId; indexId <= endId; indexId++){
         // 更新钉钉或者企业微信的配置信息
         await dao.updateTargetConfig(indexId)
@@ -40,6 +41,10 @@ const check = async () => {
             rsqUserId: oauth.rsqUserId,
             rsqLoginToken: oauth.rsqLoginToken
         })
+        updated++
+    }
+    if(updated){
+        global.logger.info(`${updated} rows updated`)
     }
     global.logger.info(`check end`)
 }
